@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang = "en" dir = "ltr">
+    <head>
+        <title>The Music Store</title>
+        <meta charset = "UTF-8">
+        <meta http-equiv="content-type" context = "text/html">
+        <meta name= "viewport" content = "width=device-width, initial-scale=1">
+        <!-- CSS -->
+        <link rel = "stylesheet" type = "text/css" href = "signup.css">
+        <!-- Javascript code to check form fields -->
+        <script type = "text/javascript">
+            function checkform() {
+                var fname = document.getElementById("fname").value.trim();
+                var lname = document.getElementById("lname").value.trim();
+                var email = document.getElementById("email").value.trim();
+                var passwd = document.getElementById("passwd");
+                var cpasswd = document.getElementById("c-passwd");
+                var check = document.getElementById("check");
+                var errormessage = "";
+                // Validation for First Name
+                if(fname == "") {
+                    errormessage+= "Enter your First Name <br />";
+                    document.getElementById('fname').style.cssText = "border:solid 3px red;";
+                    document.getElementById('fname').addEventListener("focus", function () {
+                        this.style.cssText = "border:none;"; document.getElementById('validate').innerHTML="" });
+                }
+                // Validation for Last Name
+                if(lname == "") {
+                    errormessage+= "Enter your Last Name <br />";
+                    document.getElementById('lname').style.cssText = "border:solid 3px red;";
+                    document.getElementById('lname').addEventListener("focus", function () {
+                        this.style.cssText = "border:none;"; document.getElementById('validate').innerHTML="" });
+                }
+                // Validation for Email
+                if(email == "") {
+                    errormessage+= "Enter your Email <br />";
+                    document.getElementById('email').style.cssText = "border:solid 3px red;";
+                    document.getElementById('email').addEventListener("focus", function () {
+                        this.style.cssText = "border:none;"; document.getElementById('validate').innerHTML="" });
+                }
+                // Validation for Password
+                if(passwd.value == "") {
+                    errormessage+= "Enter your Password <br />";
+                    document.getElementById('passwd').style.cssText = "border:solid 3px red;";
+                    document.getElementById('passwd').addEventListener("focus", function () {
+                        this.style.cssText = "border:none;"; document.getElementById('validate').innerHTML="" });
+                }
+                // Validation for Confirm Password
+                if(cpasswd.value == "") {
+                    errormessage+= "Re-enter your Password to confirm <br />";
+                    document.getElementById('c-passwd').style.cssText = "border:solid 3px red;";
+                    document.getElementById('c-passwd').addEventListener("focus", function () {
+                        this.style.cssText = "border:none;"; document.getElementById('validate').innerHTML="" });
+                }
+                // Validation for Accept Checkbox
+                if(check.checked == false) {
+                 errormessage+= "Please accept the Terms of Use and Privacy Policy <br />";
+                    document.getElementById('terms').style.cssText = "border:solid 3px red;";
+                    document.getElementById('terms').addEventListener("click", function () {
+                        this.style.cssText = "border:none;"; document.getElementById('validate').innerHTML="" });
+                }
+                // Validation for checking if the passwords match    
+                if(passwd.value != cpasswd.value) { 
+                    errormessage+= "Passwords don't match! <br />"
+                    document.getElementById('passwd').style.cssText = "border:solid 3px red;";
+                    document.getElementById('c-passwd').style.cssText = "border:solid 3px red;";
+                    document.getElementById('passwd').addEventListener("focus", function () {
+                        this.style.cssText = "border:none;";document.getElementById('validate').innerHTML="" });
+                    document.getElementById('c-passwd').addEventListener("focus", function () {
+                        this.style.cssText = "border:none;";document.getElementById('validate').innerHTML="" });
+                }
+                // Validation for checking the correctness of the email
+                if(!(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))) {
+                 errormessage+="Email is Invalid! <br />";
+                    document.getElementById('email').style.cssText = "border:solid 3px red;";
+                    document.getElementById('email').addEventListener("focus", function () {
+                        this.style.cssText = "border:none;";document.getElementById('validate').innerHTML="" });
+                }
+                // Error Message
+                if (errormessage != "") {
+                    document.getElementById('validate').className ="error";
+                    document.getElementById('validate').innerHTML = errormessage;
+                    return false;
+                }
+                // Successful Form Submission
+                else {
+                    window.location = "login.html";
+                    return false;
+                }
+            };
+        </script>
+    </head>
+    <body>
+        <form class = "sign-up" onsubmit = "return checkform()" method = "POST">
+            <div class = "container">
+            <!-- Main Heading: Sign Up -->
+                <h2 style = "color: black; font-size: 25px; margin-top: 8px;"><b>Sign Up</b></h2>
+                <!-- Sub-heading / Paragraph text -->
+                <p style = "color: gray; font-size: 18px">Please fill in this form to create an account!</p>
+                <hr style="color: grey;">
+                <p id="validate"></p>
+                <!-- First Name & Last Name -->
+                <div class = "row">
+                    <div class = "column">
+                        <input id = "fname" type = "text" placeholder = "First Name" name = "firstName"> 
+                    </div>
+                    <div class = "column">
+                        <input id = "lname" type = "text" placeholder = "Last Name" name = "lastName" style = "margin-inline-start: 20px">
+                    </div>
+                </div>
+                <!-- Email -->
+                <div class = "email">
+                        <input id = "email" type = "email" placeholder = "Email" name = "email" style = "margin-top: 13px;">
+                </div>
+                <!-- Password -->
+                <div class = "passwd">
+                    <input id = "passwd" type = "password" placeholder = "Password" name = "password" style = "margin-top: 13px;">
+                </div>
+                <!-- Confirm Password -->
+                <div class = "c-passwd">
+                    <input id = "c-passwd" type = "password" placeholder = "Confirm Password" name = "password_confirm" style = "margin-top: 13px;">
+                </div>
+                <!-- Accept Checkbox -->
+                <div class = "checkbox-rules">
+                    <p id = "terms">
+                        <input id="check" type="checkbox" name = "accept" style = "margin-top: 20px; width: 15px; height: 15px;"> I accept the <a href="#" style="color:dodgerblue;text-decoration:none;">
+                        Terms of Use</a> & <a href="#" style="color:dodgerblue;text-decoration:none;"> Privacy Policy</a>.
+                    </p>
+                </div>
+                <!-- Sign Up button -->
+                <input class = "btn-signup" type = "submit" value = "Sign Up" style = "margin-top: 18px; font-size: 18px; font-weight: bold">
+            </div>
+        </form>        
+    </body>
+</html>
