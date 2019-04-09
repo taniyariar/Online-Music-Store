@@ -7,7 +7,8 @@
         <meta name= "viewport" content = "width=device-width, initial-scale=1">
         <link rel = "icon" href = "img/logo.png" type = "image/jpg" sizes = "16x16">
         <!-- CSS -->
-        <link rel = "stylesheet" type = "text/css" href = "signup.css">
+        <link rel = "stylesheet" type = "text/css" href = "css/signup.css">
+        <script type = "text/javascript" src ="js/signup.js"></script> 
       </head>
     <body>
         <form class = "sign-up" onsubmit = "return checkform()" method = "POST">
@@ -33,8 +34,8 @@
                 </div>
                 <!-- Phone -->
                 <div class = "phone">
-                        <input id = "phone" type = "text" placeholder = "Phone" name = "phone" style = "margin-top: 13px;">
-                        <select>
+                    <div class = "column">
+                        <select id = "selectBox" style = "margin-top: 13px;">
                           <option data-countryCode="US" value="1" selected>USA (+1)</option>
                           <option data-countryCode="GB" value="44">UK (+44)</option>
                           <option disabled="disabled">Other Countries</option>
@@ -251,6 +252,10 @@
                           <option data-countryCode="ZM" value="260">Zambia (+260)</option>
                           <option data-countryCode="ZW" value="263">Zimbabwe (+263)</option>
                         </select>
+                    </div>
+                    <div class = "column">
+                        <input id = "phone" type = "text" placeholder = "Phone" name = "phone" style = "margin-top: 13px; margin-inline-start: 20px;">
+                    </div>
                 </div>
                 <!-- Password -->
                 <div class = "passwd">
