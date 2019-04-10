@@ -1,0 +1,57 @@
+html, body {
+    height: 100%;
+}
+body {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background: lightblue;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.sign-in {
+    max-width: 500px;
+    margin: auto;
+    border-radius: 10px;
+    padding: 40px;
+    background: #ffffff;
+    margin-top: 62px;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px lightgrey;
+}
+.sign-in .checkbox {
+    font-weight: 400;
+}
+input[type = email], input[type = password] {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: solid black 1px;
+    width: 300px;
+}
+.sign-in input[type = password]:focus, input[type = email]:focus {
+    background-color: white;
+    outline: 3px solid #50C878;
+    z-index: 2;
+    border-bottom-right-radius: 0;
+}
+input[type = checkbox]:hover {
+    cursor: pointer;
+}
+.checkbox-mb3 {
+    color: black;
+    text-decoration-color: black;
+    padding: 5px;
+    display: inline-block;
+    border: 2px;
+    border-radius: 25%;
+    left: 0;
+    top: 0;
+    font-size: 16px;
+}
+

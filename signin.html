@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang = "en" dir = "ltr">
+    <head>
+        <title>Login | The Music Store</title>
+        <meta charset = "UTF-8">
+        <meta http-equiv="content-type" context = "text/html">
+        <meta name = "viewport" content = "width=device-width; initial-scale=1">
+        <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src = "https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        <script type = "text/javascript" src ="js/signin.js"></script> 
+        <style>
+            .bd-placeholder-img {
+                font-size: 1.125rem;
+                text-anchor: middle;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+            @media (min-width: 768px) {
+    			.bd-placeholder-img-lg {
+                	font-size: 3.5rem;
+            	}
+            }
+        </style>
+        <link rel = "stylesheet" type = "text/css" href = "css/signin.css">
+    </head>
+    <body class = "text-center">
+        <form class = "sign-in">
+            <img class = "mb-4" src = "img/logo.png" alt = "The Music Store" width = "120px" height = "120px">
+            <div class = "container-fluid">
+                    <h2 style = "color: black; font-size: 25px; margin-top: 8px;"><b>Sign In</b></h2>
+                    <p id="validate"></p>
+                    <!-- First Name & Last Name -->
+                    <div class = "email">
+                            <input id = "email" type = "email" placeholder = "Email" name = "email" style = "margin-top: 13px;">
+                    </div>
+                    <div class = "passwd">
+                        <input id = "passwd" type = "password" placeholder = "Password" name = "password" style = "margin-top: 13px;">
+                    </div>
+                    <div class = "checkbox-mb3">
+                        <input id = "check" type = "checkbox" value = "Remember me" placeholder = "Remember me" style = "margin-top: 13px; width: 15px; height: 15px;">  Remember me
+                    </div>
+                    <button class = "btn btn-lg btn-primary btn-block" id = "signup" type = "submit" value = "Sign Up" style = "margin-top: 13px; font-size: 18px; font-weight: bold; color: white;">Sign In</button>    
+            </div>
+        </form>
+    </body>
+</html>
