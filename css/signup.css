@@ -1,4 +1,9 @@
 body {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-bottom: 40px;
     background: lightblue;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
@@ -26,8 +31,8 @@ form {
     background: #E8E8E8;
     color: grey;
     border-radius: 5px;
-    width: 188px;
-    height: 46px;
+    width: 180px;
+    
 }
 #selectBox:focus {
     background-color: white;
@@ -73,7 +78,7 @@ input[type = text], input[type = tel] {
     border: 2px;
     background: #E8E8E8;
     color: #484848;
-    width: 160px;
+    width: 170px;
     border-radius: 5px;
 }
 input[type = checkbox] {
@@ -116,4 +121,7 @@ input[type = checkbox]:hover {
 
 select :click{
   background-color: black;
+}
+#signin:hover {
+    cursor: pointer;
 }
