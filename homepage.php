@@ -1,8 +1,8 @@
+// HOMEPAGE
 <?php
 session_start();
 if(!isset($_SESSION["username"])){
-	header('Location: /MusicMaster/login.html');
-	
+	header('Location: /MusicMaster/login.html');	
 }
 
 ?>
