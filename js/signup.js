@@ -91,11 +91,10 @@ $(document).ready(function(){
       });
     }
     if(passwd.length < 6){
-      $("#passwd").after('<span class="error">Password must be at least 6 characters long</span>');
+      errormsg += "Password must be at least 6 characters long<br/>";
       $("#passwd").css({"border":"solid 3px red"});
       $("#passwd").focus(function(){
         $(this).css({"border":"none"});
-        $("span").remove();
       });
     }
 
