@@ -1,8 +1,8 @@
 $(document).ready(function(){
   var errormsg = "";
-  $("#phone").keyup(function() {
+  /*$("#phone").keyup(function() {
     $(this).val($(this).val().replace(/^(\d{3})(\d{3})(\d)+$/, "($1)$2-$3"));
-  });
+  });*/
   $("form").submit(function(e){
     e.preventDefault();
     var email = $.trim($("#email").val());
@@ -12,7 +12,7 @@ $(document).ready(function(){
     var code = $.trim($("#selectBox option").val());
     var passwd = $.trim($("#passwd").val());
     var cpasswd = $.trim($("#c-passwd").val());
-    console.log(email,fname,lname,phone,code,passwd,cpasswd);
+    //console.log(email,fname,lname,phone,code,passwd,cpasswd);
     var check= $('#check').prop('checked');
     
 
@@ -51,28 +51,8 @@ $(document).ready(function(){
           $("#validate").empty();
         });
       }
-      else{
-        /*$.ajax({
-          type: "POST",
-          url:"php/checkemail.php",
-          dataType:"json",
-          success:function(data){
-            console.log( data[0].response );
-            if(data == "exist"){
-              errormsg += "Email alreadu exists. Try logging in. <br/>";
-              $("#email").css({"border":"solid 3px red"});
-              $("#email").focus(function(){
-                $("#email").css({"border":"none"});
-                $("#validate").empty();
-              });
-            }
-          },
-          error:function(data){
-          }
-        });*/
-        console.log("ajax call comes here");
-      }
     }
+      
     
 
     if(code.length < 1){
@@ -159,8 +139,40 @@ $(document).ready(function(){
       return false;
     }
     else{
-      console.log("Create ajax to push to database");
+      $.ajax({
+        type:'POST',
+        url: "php/signup.php", 
+        dataType:"json",  
+        data: {
+          email:email,
+          fname:fname,
+          lname:lname,
+          phone:phone,
+          code:code,
+          passwd:passwd          
+        },
+        success: function (response) {
+            var json = $.parseJSON(response);
+            console.log(json.status); 
+            if(json.status == "exist"){
+              $("#email").after('<span class="error">Email Id already exists. Try Logging In.</span>');
+              $("#email").css({"border":"solid 3px red"});
+              $("#email").focus(function(){
+                $("#email").css({"border":"none"});
+                $("span").remove();
+              });
+            }  
+           if(json.status == "inserted"){
+              $("#validate").removeClass("error");
+              $("#validate").html("Thanks for signing up!");
+              $("form")[0].reset(); 
+            }       
+        },
+        error: function(data) {
+          console.log(data);
+        }
+              
+      });  
     }
-  
   })
 });
