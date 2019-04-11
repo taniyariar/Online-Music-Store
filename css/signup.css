@@ -25,13 +25,13 @@ form {
 }
 #selectBox {
     padding: 15px;
-    margin: 5px 0 10px 0;
+    margin: 5px 10px 10px 0;
     display: inline-block;
     border: 2px;
     background: #E8E8E8;
     color: grey;
     border-radius: 5px;
-    width: 180px;
+    width: 170px;
     
 }
 #selectBox:focus {
@@ -73,7 +73,7 @@ input[type = password], input[type = email] {
 }
 input[type = text], input[type = tel] {
     padding: 15px;
-    margin: 5px 0 10px 0;
+    margin: 5px 10px 10px 0;
     display: inline-block;
     border: 2px;
     background: #E8E8E8;
@@ -87,7 +87,7 @@ input[type = checkbox] {
     padding: 15px;
     display: inline-block;
     border: 2px;
-    border-radius: 25%;
+    border-radius: 5px;
     left: 0;
     top: 0;
 }
