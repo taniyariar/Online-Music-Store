@@ -106,7 +106,7 @@ input[type = "submit"] {
 input[type = "submit"]:hover {
     background: darkblue;
 }
-input[type = text]:focus, input[type = password]:focus, input[type = email]:focus {
+input[type = text]:focus, input[type = password]:focus, input[type = email]:focus, input[type = tel]:focus {
     background-color: white;
     outline: 3px solid #50C878;
 }

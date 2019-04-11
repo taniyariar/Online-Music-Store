@@ -57,4 +57,9 @@ input[type = checkbox]:hover {
 #signup:hover {
     cursor: pointer;
 }
+.error {
+    color: red;
+    font:bold;
+    font-size: 14px;
+}
 
