@@ -14,7 +14,7 @@ $(document).ready(function(){
     var cpasswd = $.trim($("#c-passwd").val());
     //console.log(email,fname,lname,phone,code,passwd,cpasswd);
     var check= $('#check').prop('checked');
-    
+
 
     if(fname.length < 1){
       errormsg += "Enter First Name <br/>";
@@ -52,8 +52,6 @@ $(document).ready(function(){
         });
       }
     }
-      
-    
 
     if(code.length < 1){
       errormsg += "Select Country Code <br/>";
@@ -62,7 +60,7 @@ $(document).ready(function(){
         $(this).css({"border":"none"});
         $("#validate").empty();
       });
-    }    
+    }
 
     if(phone.length < 1){
       errormsg += "Enter Phone Number <br/>";
@@ -91,11 +89,10 @@ $(document).ready(function(){
       });
     }
     if(passwd.length < 6){
-      $("#passwd").after('<span class="error">Password must be at least 6 characters long</span>');
+      errormsg += "Password must be at least 6 characters long<br/>";
       $("#passwd").css({"border":"solid 3px red"});
       $("#passwd").focus(function(){
         $(this).css({"border":"none"});
-        $("span").remove();
       });
     }
 
@@ -141,19 +138,19 @@ $(document).ready(function(){
     else{
       $.ajax({
         type:'POST',
-        url: "php/signup.php", 
-        dataType:"json",  
+        url: "php/signup.php",
+        dataType:"json",
         data: {
           email:email,
           fname:fname,
           lname:lname,
           phone:phone,
           code:code,
-          passwd:passwd          
+          passwd:passwd
         },
         success: function (response) {
             var json = $.parseJSON(response);
-            console.log(json.status); 
+            console.log(json.status);
             if(json.status == "exist"){
               $("#email").after('<span class="error">Email Id already exists. Try Logging In.</span>');
               $("#email").css({"border":"solid 3px red"});
@@ -161,18 +158,17 @@ $(document).ready(function(){
                 $("#email").css({"border":"none"});
                 $("span").remove();
               });
-            }  
+            }
            if(json.status == "inserted"){
               $("#validate").removeClass("error");
               $("#validate").html("Thanks for signing up!");
-              $("form")[0].reset(); 
-            }       
+              $("form")[0].reset();
+            }
         },
         error: function(data) {
           console.log(data);
         }
-              
-      });  
+      });
     }
   })
 });
