@@ -1,4 +1,5 @@
 $(document).ready(function(){
+      
     $("#additemform").submit(function(e){
       e.preventDefault();
       var formData =  new FormData($(this));

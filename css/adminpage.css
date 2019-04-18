@@ -2,11 +2,14 @@
 	padding:20px;
 	float:left;
 }
-
 #home{
 	color: orange;
 }
 #add-item{
+	clear:left;
+	padding:20px;
+}
+#edit-item{
 	clear:left;
 	padding:20px;
 }
