@@ -24,14 +24,12 @@ if ($conn->connect_error) {
 $sql = "SELECT * FROM `users` where emailid = '$email'";
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) 
+    while($row = $result->fetch_assoc())
   {
-    
     echo json_encode('{"status":"exist"}');
-    
   }
-  
-} 
+
+}
 else {
  $sql = "insert into `users` (`fname`,`lname`,`emailid`,`phoneno`,`countrycode`,`password`,`userlevel`) values('$fname','$lname','$email','$phone','$code','$pass','$userlevel')";
 
