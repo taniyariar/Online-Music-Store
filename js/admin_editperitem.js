@@ -1,6 +1,6 @@
 function wrapupfunc(){
-  window.open('../adminpage.html', '_blank');
   window.close();
+  window.open('../adminpage.php', '_blank');
 }
 function validationfunc(key,name){
   var id = key;

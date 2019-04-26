@@ -71,6 +71,9 @@
           }
         </style>
         <script type="text/javascript">
+        $("#done-btn").submit(function(){
+          window.location = "../adminpage.php";
+        });
         $(document).ready(function(){
           $("#genreSelect").val('<?php echo $genre ?>');
           $("#instockSelect").val('<?php echo $flag ?>');
@@ -112,6 +115,8 @@
 					<option value="Pop">Pop</option>
 					<option value="Classic">Classic</option>
 					<option value="Indie">Indie</option>
+          <option value="Dance">Dance</option>
+          <option value="Electronic">Electronic</option>
 				</select>
 			 </div>
        <div class="col">
@@ -156,6 +161,9 @@
 			<div class="row">
 				<div class="col">
 					<button type="submit" class="btn btn-primary" id="edit-item-btn" >Edit Item</button>
+				</div>
+        <div class="col">
+					<button type="submit" class="btn btn-primary" id="done-btn" >Cancel</button>
 				</div>
 			</div>
     </form>

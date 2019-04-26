@@ -1,5 +1,5 @@
 $(document).ready(function(){
-      
+
     $("#additemform").submit(function(e){
       e.preventDefault();
       var formData =  new FormData($(this));
@@ -160,6 +160,8 @@ $(document).ready(function(){
                    if($.isNumeric(j.id)){
                      alert("Item added to Inventory");
                      $('#additemform')[0].reset();
+                     window.open('adminpage.html', '_blank');
+                     window.close();
                    }
                    else{
                      alert("Error Occurred while adding Image to inventory");
