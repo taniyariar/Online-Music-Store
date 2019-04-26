@@ -4,12 +4,12 @@ $(document).ready(function(){
        var username = $('#email').val();
         var email_regex =  /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
         var passwd = $('#passwd').val();
-   
+
    // if(!username.match(email_regex) || username.length < 1) {
-   //    $('#email').after('<span class = "error">Please enter a valid email address!</span>'); 
+   //    $('#email').after('<span class = "error">Please enter a valid email address!</span>');
    // }
    // if(passwd.length==0){
-   //     $('#passwd').after('<span class = "error">Please enter a valid password!</span>'); 
+   //     $('#passwd').after('<span class = "error">Please enter a valid password!</span>');
    //  }
    if(!username.match(email_regex) || username.length < 1){
        $("#email").after('<span class="error"><br/>Please enter a valid email address</span>');
@@ -19,7 +19,7 @@ $(document).ready(function(){
          $("span").remove();
        });
    }
-   
+
    if(passwd.length == 0){
        $("#passwd").after('<span class="error"><br/>Password must be filled</span>');
        $("#passwd").css({"border":"solid 3px red"});
@@ -34,23 +34,29 @@ $(document).ready(function(){
             type: 'POST',
             dataType: "json",
            data: {
-               username: $('#email').val(),
+               email: $('#email').val(),
                password: $('#passwd').val()
             },
             success:function(response){
                var json= $.parseJSON(response);
                console.log(json.status);
                if(json.status == "OK"){
-                   $(location).attr('href',"http://localhost/l/WPL/homepage.html");
-                   //alert(json.status);
+                 if(json.level == "a"){
+                   window.location = "adminpage.php";
+                 }
+                 else{
+                   window.location = "musichomepage.php";
+                 }
                }
-                
+               else{
+                 alert("Entered Credentials are not correct !!! ");
+               }
             },
             error: function(response){
-                alert("Please enter valid password!");
+                //alert("Entered Credentials not correct !!! ");
             }
         })
        }
     });
-   
+
     });

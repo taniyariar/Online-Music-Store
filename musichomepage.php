@@ -1,23 +1,68 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['user'])){
+    header("Location:signin.html");
+  }
+?>
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Home | The Music Store</title>
+        <title>Shop | The Music Store</title>
         <meta charset = "UTF-8">
         <meta http-equiv="content-type" context = "text/html">
 		<meta name = "viewport" content = "width=device-width, initial-scale=1.0">
 		<link rel = "icon" href = "img/logo.png" type = "image/png" sizes = "16x16">
-        <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity = "sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin = "anonymous">
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity = "sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin = "anonymous"></script>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity = "sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin = "anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity = "sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin = "anonymous"></script>
         <link rel = "stylesheet" href = "https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity = "sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin = "anonymous">
-        <link rel = "stylesheet" href = "css/homepage.css">
-
-        <script type = "text/javascript" src = "js/homepage.js"></script>
+        <link rel = "stylesheet" href = "css/musichomepage.css">
+        <script type = "text/javascript" src = "js/musichomepage.js"></script>
+        <script type = "text/javascript" src = "js/populateData.js"></script>
     </head>
+    <style media="screen">
+      footer{
+        position:fixed;
+        bottom: 0;
+        width:100%;
+      }
+      #info-box{
+          background-color:grey;
+          position:absolute;
+          width:auto;
+          height:auto;
+          border: 3px solid black;
+          color:white;
+      }
+      </style>
+    <script type="text/javascript">
+    function addToCart(k){
+      $.ajax({
+        url:"php/addToCart.php",
+        type:"POST",
+        data:{id:k},
+        dataType:"json",
+        success:function(response){
+          if(response.status == "added"){
+            $("#counter").val(response.counter);
+            alert("Item added to Cart !!!");
+          }
+          else if (response.status == "purchased") {
+            alert("Item already in Purchased. Check your order history !!!");
+          }
+          else{
+            alert("Item already in Cart !!!");
+          }
+        },
+        error:function(){}
+      });
+    }
+    function detailsShow(g,i,y,d){
+    }
+    </script>
     <body>
-        <!-- Navigation Bar -->
+          <!-- Navigation Bar -->
         <nav class = "navbar navbar-expand-lg navbar-dark bg-transparent" id = "myNavbar">
             <a class = "navbar-brand" href = "#">
                 <img src = "img/logo.png" width = "40" height = "40" alt = "The Music Store">
@@ -34,6 +79,7 @@
                         <a class = "nav-link" href = "#content-container" style = "font-size: 18px; color:white;">Shop</a>
                     </li>
                 </ul>
+                <input type = "text" name = "counter" id = "counter" value = "0" style = "font-size: 15px; margin-top: -30px; margin-right: -248px; color: white; width: 20px; background: black; text-decoration: none; border: none;" />
                 <ul class = "nav navbar-nav navbar-right" style = "margin-top: 5px;">
                     <li>
                         <form class = "form-inline my-2 my-lg-0">
@@ -62,64 +108,40 @@
             </div>
         </div>
 
-        <div class = "jumbotron-new">
-            <div class = "container-carousel"  style = "margin-top: -32px; width: 80%; margin-left: auto; margin-right: auto;">
-                <div id="carouselList" class="carousel slide" data-ride="carousel" style = "width: 100%; height: 460px; padding-top: 5px;">
-                    <ol class = "carousel-indicators">
-                        <li data-target = "#carouselList" data-slide-to = "0" class = "active"></li>
-                        <li data-target = "#carouselList" data-slide-to = "1"></li>
-                        <li data-target = "#carouselList" data-slide-to = "2"></li>
-                        <li data-target = "#carouselList" data-slide-to = "3"></li>
-                        <li data-target = "#carouselList" data-slide-to = "4"></li>
-                    </ol>
-                    <div class="carousel-inner" style = "width: 100%; height: 450px; align-content: center; margin: auto; border: 2px solid #333333; border-radius: 10px;">
-                        <div class="carousel-item active">
-                            <img  class = "d-block w-100" src="img/carousel1new.jpg" alt="The Greatest Hits - Queen">
-                        </div>
-                        <div class="carousel-item">
-                            <img class = "d-block w-100" src="img/carousel2new.jpg" alt="The Greatest Hits - Pink Floyd">
-                        </div>
-                        <div class="carousel-item">
-                            <img class = "d-block w-100" src="img/carousel3new.jpg" alt="The Greatest Hits - AC-DC">
-                        </div>
-                        <div class="carousel-item">
-                            <img class = "d-block w-100" src="img/carousel4new.jpg" alt="The Greatest Hits - The Beatles">
-                        </div>
-                        <div class="carousel-item">
-                            <img class = "d-block w-100" src="img/carousel5new.jpg" alt="The Greatest Hits - Led Zeppelin">
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselList" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselList" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-            </div>
+        <!-- Filter -->
+        <div id = "filterSection">
+            <ul class = "filter" style = "text-align: center; align-content: center; font-size: 25px; line-height: 20px; color: white; display: inline;">
+                <li>Filter by Genre:</li>
+                <li>
+                    <input type = "checkbox" checked = "true" value = "Rock">
+                    <label>Rock</label>
+                </li>
+                <li>
+                    <input type = "checkbox" checked = "true" value = "Pop">
+                    <label>Pop</label>
+                </li>
+                <li>
+                    <input type = "checkbox" checked = "true" value = "Jazz">
+                    <label>Jazz</label>
+                </li>
+                <li>
+                    <input type = "checkbox" checked = "true" value = "Classical">
+                    <label>Classical</label>
+                </li>
+                <li>
+                    <input type = "checkbox" checked = "true" value = "Metal">
+                    <label>Metal</label>
+                </li>
+            </ul>
         </div>
-        <!-- Carousel element to display the latest songs -->
-        <!-- <div class = "container">
+        <div id='album'>
+          <ul id="album-data">
+          </ul>
+          <!--<p style="color:white;"> Items are here </p>-->
+        </div>
+        <!-- <input type = "Button" id= "add" value = "Add to Cart" style = "width: 110px; height: 50px; color: black; border: 1px solid black; border-radius: 10px;" /> -->
 
-        </div> -->
-        <div id = "content-container">
-            <div style = "font-size: 30px; text-align: center;">
-                <a href = "#main-content-container"><i class = "fas fa-angle-down fa-2x" style = "color: white;"></i></a>
-            </div>
-            <div id = "main-content-container" style = "margin-top: 80px;">
-                <h1 style = "text-align: center; color: white; font-family: Georgia, 'Times New Roman', Times, serif; font-size: 100px;">All your favorite music.</h1>
-                <br/>
-                <h1 style = "text-align: center; color: white; font-family: Georgia, 'Times New Roman', Times, serif;">In one place.</h1>
-            </div>
-            <br/>
-            <div id = "shop-button">
-                <button class = "btn btn-primary" onclick="window.location='musichomepage.php'">
-                    <div class = "shop-text">SHOP</div>
-                </button>
-            </div>
-        </div>
+        <!-- Footer -->
         <footer class = "footer">
             <div class = "footer-container">
                 <span class = "text-muted">Copyright &copy; 2019 - Fenny Mahajan, Noumika Balaji, Taniya Riar (CS6314.001 - Spring 2019)</span>

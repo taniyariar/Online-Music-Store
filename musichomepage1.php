@@ -1,3 +1,16 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['user'])){
+    header("Location:signin.html");
+  }
+  $_SESSION['cart'] = array(101,95,99);
+  /*else{
+    $_SESSION['user'] = $name;
+    echo $_SESSION['user'];
+    $_SESSION['cart'] = array(101,95,99);
+    echo "Session variables are set as ".$_SESSION['cart'];
+  }*/
+ ?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -12,7 +25,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity = "sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin = "anonymous"></script>
         <link rel = "stylesheet" href = "https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity = "sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin = "anonymous">
         <link rel = "stylesheet" href = "css/homepage.css">
-        
+
         <script type = "text/javascript" src = "js/homepage.js"></script>
     </head>
     <body>
@@ -55,7 +68,6 @@
                 <i class="fab fa-instagram"></i>
                 <i class="fab fa-twitter-square"></i>
                 <p style = "font-family: Georgia, 'Times New Roman', Times, serif; font-size: 20px; color: white;">Latest Albums  &bull;  Greatest Hits  &bull;  Billboard Chartbusters</p>
-                                
             </div>
         </div>
 
@@ -99,7 +111,7 @@
         </div>
         <!-- Carousel element to display the latest songs -->
         <!-- <div class = "container">
-            
+
         </div> -->
         <div class = "content-container">
             <div style = "font-size: 20px; text-align: center;">

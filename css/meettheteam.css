@@ -2,7 +2,8 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    background: black;    
+    background: black;  
+      
 }
 .vl {
     height: 20px;
@@ -26,29 +27,17 @@ body {
     padding-top: 15px;
     padding-bottom: 10px;
     background-color: #000000;
-    background-image: linear-gradient(180deg, #000000 30%, #04619f 100%);    
+    background-image: linear-gradient(180deg, #000000 50%, #04619f 100%);    
     border-radius: 0px;
     align-content: center;
     align-items: center;
 }
 .jumbotron-new {
     align-content: center;
-    background-color: #000000;
-    background-image: linear-gradient(360deg, #000000 0%, #04619f 100%);    
-}
-#carouselList {
-    align-content: center;
-    align-self: center;
-    margin-left: auto;
-    margin-right: auto;
 }
 #myNavbar {
     margin-top: 0;
 
-}
-.carousel-item {
-    width: 100%;
-    height: auto;
 }
 .footer-container {
     position: relative;
@@ -119,29 +108,18 @@ body {
     opacity: 0.7;
     cursor: pointer;
 }
-#shop-button {
+.row {
+    justify-content: space-evenly;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
+    align-content: center;
+    background: white;
+    margin: auto;
+    margin-top: -10px;
 }
-.shop {
-    height: 120px;
-    width: 380px;
-    border: solid white 1px;
-    border-radius: 10px;
-    color: white;
-    background: linear-gradient(to left, white 50%, black 50%);
-    background-size: 200% 100%;
-    background-position: left bottom;
-    transition: all .75s ease;
-    margin-bottom: 20px;
-    font-size: 60px;
-}
-.shop:hover {
-    background-position: right bottom;
-}
-.shop-text {
-    color: white;
-}
-.shop-text:hover {
-    color: black;
-}
-
+.title {
+    color: grey;
+    font-size: 18px;
+}  
