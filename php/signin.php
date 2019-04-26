@@ -1,48 +1,36 @@
 <?php
-  session_start();
-  session_regenerate_id(true);
- ?>
-<?php
 $servername = "localhost";
 $username = "root";
 $password = "root";
 $dbname = "myapp";
 
-$name = $_POST['email'];
-$passwd = hash('sha256',$_POST['password']);
+//echo "Hello world!";
+$name = $_POST['username'];
+$passwd = $_POST['password']; 
+
+
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT * FROM `users` where `emailid`= '$name'";
+$sql = "SELECT * FROM `users` where emailid = '$name' and password= '$passwd'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()){
-      $hpasswd = $row['password'];
-      $level = $row['userlevel'];
+    while($row = $result->fetch_assoc()) 
+  {
+	 echo json_encode('{"status":"OK"}');
+	 //header('Location:http://localhost/WPL/homepage.html');
+	 //echo $row;
   }
+  
+  
 }
-else{
-  $error = "Error: " . $sql . "<br>" . $conn->error;
-  echo $error;
-}
-if($hpasswd == $passwd){
-  //session_regenerate_id();
-  $_SESSION['user'] = $name;
-  $_SESSION['level'] = $level;
-  //session_write_close();
-  if($level == 'u'){
-    echo json_encode('{"status":"OK","level":"u"}');
-  }
-  else{
-    echo json_encode('{"status":"OK","level":"a"}');
-  }
-}
-else{
-  echo json_encode('{"status":"NOT OK"}');
-}
-$conn -> close();
+
+
+
+
+
 ?>

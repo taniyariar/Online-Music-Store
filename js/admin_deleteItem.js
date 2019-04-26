@@ -10,18 +10,16 @@ $(document).ready(function(){
     }
   });
   window.deleteSong = function(id){
-    //console.log(id);
+    //window.location= "php/admin_editperitem.php?songId="+id;
+    console.log(id);
 		$.ajax({
 			url: 'php/admin_deleteperitem.php',
 			type: 'POST',
 			dataType: "json",
 			data: {id: id },
-			success: function(response){
-          var json = $.parseJSON(response);
-          if(json.status == "OK"){
-            window.open('adminpage.php',"_blank");
-            window.close();
-          }
+			success: function () {
+			    window.open('../adminpage.html','_blank');
+          window.close();
 			},
 			error: function(data) {
 			}
