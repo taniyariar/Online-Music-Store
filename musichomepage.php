@@ -18,15 +18,10 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity = "sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin = "anonymous"></script>
         <link rel = "stylesheet" href = "https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity = "sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin = "anonymous">
         <link rel = "stylesheet" href = "css/musichomepage.css">
-        <script type = "text/javascript" src = "js/musichomepage.js"></script>
+        <!-- <script type = "text/javascript" src = "js/musichomepage.js"></script> -->
         <script type = "text/javascript" src = "js/populateData.js"></script>
     </head>
     <style media="screen">
-      footer{
-        position:fixed;
-        bottom: 0;
-        width:100%;
-      }
       #info-box{
           background-color:grey;
           position:absolute;
@@ -79,12 +74,14 @@
                         <a class = "nav-link" href = "#content-container" style = "font-size: 18px; color:white;">Shop</a>
                     </li>
                 </ul>
-                <input type = "text" name = "counter" id = "counter" value = "0" style = "font-size: 15px; margin-top: -30px; margin-right: -248px; color: white; width: 20px; background: black; text-decoration: none; border: none;" />
+                <input type = "text" name = "counter" id = "counter" value = "0" style = "font-size: 15px; margin-top: -30px; margin-right: -315px; color: white; width: 20px; background: black; text-decoration: none; border: none;" />
                 <ul class = "nav navbar-nav navbar-right" style = "margin-top: 5px;">
                     <li>
-                        <form class = "form-inline my-2 my-lg-0">
-                            <input class = "form-control mr-sm-2" type = "search" placeholder = "Search" aria-label = "Search">
+                        <form id="search-form" class = "form-inline my-2 my-lg-0">
+                            <input id="searchItem" class = "form-control mr-sm-2" type = "search" placeholder = "Search" aria-label = "Search">
+                            <button id="search-btn" class = "btn btn-primary ">Search</button>
                         </form>
+
                     </li>
                     <li class = "nav-item-right"><a href="php/cart.php" style = "font-size: 18px; color: white;"><span class="fas fa-shopping-cart"></span> Cart</a></li>
                     <li class = "nav-item-right"><a href="php/orderhistory.php" style = "font-size: 18px; color: white;"><span class="fas fa-file-alt"></span> Order History</a></li>
@@ -113,31 +110,38 @@
             <ul class = "filter" style = "text-align: center; align-content: center; font-size: 25px; line-height: 20px; color: white; display: inline;">
                 <li>Filter by Genre:</li>
                 <li>
-                    <input type = "checkbox" checked = "true" value = "Rock">
+                    <input type = "checkbox"  value = "Rock">
                     <label>Rock</label>
                 </li>
                 <li>
-                    <input type = "checkbox" checked = "true" value = "Pop">
+                    <input type = "checkbox"  value = "Pop">
                     <label>Pop</label>
                 </li>
                 <li>
-                    <input type = "checkbox" checked = "true" value = "Jazz">
-                    <label>Jazz</label>
+                    <input type = "checkbox" value = "Indie">
+                    <label>Indie</label>
                 </li>
                 <li>
-                    <input type = "checkbox" checked = "true" value = "Classical">
+                    <input type = "checkbox"  value = "Classical">
                     <label>Classical</label>
                 </li>
                 <li>
-                    <input type = "checkbox" checked = "true" value = "Metal">
-                    <label>Metal</label>
+                    <input type = "checkbox"  value = "Dance">
+                    <label>Dance</label>
+                </li>
+                <li>
+                    <input type = "checkbox" value = "Electronic">
+                    <label>Electronic</label>
+                </li>
+                    <button id="filter-btn" class = "btn btn-primary ">Filter</button>
+                <li>
+
                 </li>
             </ul>
         </div>
         <div id='album'>
           <ul id="album-data">
           </ul>
-          <!--<p style="color:white;"> Items are here </p>-->
         </div>
         <!-- <input type = "Button" id= "add" value = "Add to Cart" style = "width: 110px; height: 50px; color: black; border: 1px solid black; border-radius: 10px;" /> -->
 
