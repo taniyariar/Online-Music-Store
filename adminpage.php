@@ -85,7 +85,7 @@
 		        <a class="nav-link" href="#delete-item">Delete Item</a>
 		      </li>
 					<li class="nav-item">
-		        <a class="nav-link" href="musichomepage.php">bass Online Store</a>
+		        <a class="nav-link" href="homepage.php">bass Online Store</a>
 		      </li>
 		      <li class="nav-item" id="logout">
 		        <a class="nav-link" href="php/logout.php">Logout <i class="fa fa-sign-out"></i></a>

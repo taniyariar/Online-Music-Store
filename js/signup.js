@@ -161,7 +161,7 @@ $(document).ready(function(){
             }
            if(json.status == "inserted"){
               $("#validate").removeClass("error");
-              $("#validate").html("Thanks for signing up!");
+              $("#validate").html("<a href='signin.html'>Thanks for signing up! Click Here to Sign In Now</a>");
               $("form")[0].reset();
             }
         },

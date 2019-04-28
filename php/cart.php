@@ -20,7 +20,7 @@
         window.location="placeOrder.php?p="+p;
       };
       function transfer(){
-        window.location="../musichomepage.php";
+          window.location="../musichomepage.php";
       };
      </script>
      <style media="screen">

@@ -28,23 +28,23 @@
             <div class = "collapse navbar-collapse" id = "navbarSupportedContent">
                 <ul class = "navbar-nav mr-auto">
                     <li class = "nav-item active">
-                        <a class = "nav-link" href="homepage.html" style = "font-size: 18px;">Home <span class="sr-only">(current)</span></a>
+                        <a class = "nav-link" href="homepage.php" style = "font-size: 18px;">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li>
                         <div class = "vl"></div>
                     </li>
                     <li class = "nav-item">
-                        <a class = "nav-link" href = "musichomepage.html" style = "font-size: 18px; color:white;">Shop</a>
+                        <a class = "nav-link" href = "musichomepage.php" style = "font-size: 18px; color:white;">Shop</a>
                     </li>
                 </ul>
                 <ul class = "nav navbar-nav navbar-right" style = "margin-top: 5px;">
-                    <li>
+                  <!--  <li>
                         <form class = "form-inline my-2 my-lg-0">
                             <input class = "form-control mr-sm-2" type = "search" placeholder = "Search" aria-label = "Search">
                         </form>
                     </li>
                     <li class = "nav-item-right"><a href="php/cart.php" style = "font-size: 18px; color: white;"><span class="fas fa-shopping-cart"></span> Cart</a></li>
-                    <li class = "nav-item-right"><a href="php/orderhistory.php" style = "font-size: 18px; color: white;"><span class="fas fa-file-alt"></span> Order History</a></li>
+                    <li class = "nav-item-right"><a href="php/orderhistory.php" style = "font-size: 18px; color: white;"><span class="fas fa-file-alt"></span> Order History</a></li>-->
                     <li class = "nav-item-right"><a href="php/logout.php" style = "font-size: 18px; color: white;"><span class="fas fa-arrow-circle-right"></span> Logout</a></li>
                 </ul>
             </div>
@@ -54,13 +54,18 @@
             <div class = "container text-center" style = "margin-bottom: -15px;">
                 <i class="fas fa-phone-square"></i>
                 <p  class = "contact" style = "font-family: Georgia, 'Times New Roman', Times, serif; font-size: 20px; color: white;">972-883-2222</p>
-                <p class = "aboutUs" style = "float: left; font-size: 18px; color: white; margin-left: -180px; margin-top: 40px;"><a href = "aboutus.html" style = "color: white;">#AboutUs</a></p>
+                <?php
+                  if($_SESSION['level'] == 'a'){
+                    echo "<p class = 'aboutUs' style = 'float: left; font-size: 18px; color: white; margin-left: -180px; margin-top: 38px;'><a href = 'adminpage.php' style = 'color: white;'>Admin Controls</a></p>";
+                  }
+                 ?>
+                <!--<p class = "aboutUs" style = "float: left; font-size: 18px; color: white; margin-left: -180px; margin-top: 40px;"><a href = "aboutus.html" style = "color: white;">#AboutUs</a></p>-->
                 <h1 style = "font-family: Georgia, 'Times New Roman', Times, serif; font-size: 60px; color: white;">The Music Store</h1>
                 <i class="fab fa-facebook-square"></i>
                 <i class="fab fa-instagram"></i>
                 <i class="fab fa-twitter-square"></i>
                 <p class = "meetTheTeam" style = "float: right; font-size: 18px; color: white; margin-right: -181px; margin-top: -40px;"><a href = "meettheteam.html" style = "color: white;">#MeetTheTeam</a></p>
-                <p style = "font-family: Georgia, 'Times New Roman', Times, serif; font-size: 20px; color: white;">Latest Albums  &bull;  Greatest Hits  &bull;  Billboard Chartbusters</p>              
+                <p style = "font-family: Georgia, 'Times New Roman', Times, serif; font-size: 20px; color: white;">Latest Albums  &bull;  Greatest Hits  &bull;  Billboard Chartbusters</p>
             </div>
         </div>
         <!-- Heading -->
@@ -90,7 +95,7 @@
                 <p style = "color: #333333; font-size: 15px; margin-top: -20px; text-align: center;">The University of Texas at Dallas</p>
                 <a href="http://www.linkedin.com/in/taniyariar" target = "_blank" style = "color: black; font-size: 25px; margin-top: -20px; margin-left: 110px; margin-right: auto;"><i class="fa fa-linkedin-square"></i></a>
                 <a href="mailto:taniya.riar@utdallas.edu" target = "_blank" style = "color: black; font-size: 25px; margin-top: -37px; margin-right: 110px; margin-left: auto;"><i class="fa fa-envelope"></i></a>
-            </div>    
+            </div>
         </div>
         <footer class = "footer" style = "padding-top: 20px;">
             <div class = "footer-container">

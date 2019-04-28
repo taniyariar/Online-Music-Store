@@ -65,7 +65,7 @@
             <div class = "collapse navbar-collapse" id = "navbarSupportedContent">
                 <ul class = "navbar-nav mr-auto">
                     <li class = "nav-item active">
-                        <a class = "nav-link" href="homepage.html" style = "font-size: 18px;">Home <span class="sr-only">(current)</span></a>
+                        <a class = "nav-link" href="homepage.php" style = "font-size: 18px;">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li>
                         <div class = "vl"></div>
@@ -94,12 +94,17 @@
             <div class = "container text-center" style = "margin-bottom: -15px;">
                 <i class="fas fa-phone-square"></i>
                 <p  class = "contact" style = "font-family: Georgia, 'Times New Roman', Times, serif; font-size: 20px; color: white;">972-883-2222</p>
-                <p class = "aboutUs" style = "float: left; font-size: 18px; color: white; margin-left: -180px; margin-top: 38px;"><a href = "aboutus.html" style = "color: white;">#AboutUs</a></p>
+                <?php
+                  if($_SESSION['level'] == 'a'){
+                    echo "<p class = 'aboutUs' style = 'float: left; font-size: 18px; color: white; margin-left: -180px; margin-top: 38px;'><a href = 'adminpage.php' style = 'color: white;'>Admin Controls</a></p>";
+                  }
+                 ?>
+                <!--<p class = "aboutUs" style = "float: left; font-size: 18px; color: white; margin-left: -180px; margin-top: 38px;"><a href = "aboutus.html" style = "color: white;">#AboutUs</a></p>-->
                 <h1 style = "font-family: Georgia, 'Times New Roman', Times, serif; font-size: 60px; color: white;">The Music Store</h1>
                 <i class="fab fa-facebook-square"></i>
                 <i class="fab fa-instagram"></i>
                 <i class="fab fa-twitter-square"></i>
-                <p class = "meetTheTeam" style = "float: right; font-size: 18px; color: white; margin-right: -181px; margin-top: -40px;"><a href = "meettheteam.html" style = "color: white;">#MeetTheTeam</a></p>
+                <p class = "meetTheTeam" style = "float: right; font-size: 18px; color: white; margin-right: -181px; margin-top: -40px;"><a href = "meettheteam.php" style = "color: white;">#MeetTheTeam</a></p>
                 <p style = "font-family: Georgia, 'Times New Roman', Times, serif; font-size: 20px; color: white;">Latest Albums  &bull;  Greatest Hits  &bull;  Billboard Chartbusters</p>
 
             </div>
@@ -122,8 +127,8 @@
                     <label>Indie</label>
                 </li>
                 <li>
-                    <input type = "checkbox"  value = "Classical">
-                    <label>Classical</label>
+                    <input type = "checkbox"  value = "Classic">
+                    <label>Classic</label>
                 </li>
                 <li>
                     <input type = "checkbox"  value = "Dance">

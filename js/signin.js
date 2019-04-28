@@ -45,7 +45,7 @@ $(document).ready(function(){
                    window.location = "adminpage.php";
                  }
                  else{
-                   window.location = "musichomepage.php";
+                   window.location = "homepage.php";
                  }
                }
                else{
