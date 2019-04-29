@@ -152,7 +152,7 @@ $(document).ready(function(){
             var json = $.parseJSON(response);
             console.log(json.status);
             if(json.status == "exist"){
-              $("#email").after('<span class="error">Email Id already exists. Try Logging In.</span>');
+              $("#email").after('<span class="error">Email Id already exists.</span><a href="signin.html"> Try Logging In.</a>');
               $("#email").css({"border":"solid 3px red"});
               $("#email").focus(function(){
                 $("#email").css({"border":"none"});

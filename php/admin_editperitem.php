@@ -72,7 +72,7 @@
         </style>
         <script type="text/javascript">
         $("#done-btn").submit(function(){
-          window.location = "../adminpage.php";
+          window.location.href="http://localhost:81/WPL/adminpage.php";
         });
         $(document).ready(function(){
           $("#genreSelect").val('<?php echo $genre ?>');

@@ -12,6 +12,7 @@ $(document).ready(function(){
 
   $("#search-form").submit(function(e){
     e.preventDefault();
+    favorite = [];
     var searchstring  = $('#searchItem').val();
     favorite.push(searchstring);
     $.ajax({

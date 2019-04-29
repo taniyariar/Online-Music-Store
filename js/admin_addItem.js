@@ -160,8 +160,7 @@ $(document).ready(function(){
                    if($.isNumeric(j.id)){
                      alert("Item added to Inventory");
                      $('#additemform')[0].reset();
-                     window.open('adminpage.html', '_blank');
-                     window.close();
+                     window.location.href="http://localhost:81/WPL/adminpage.php";
                    }
                    else{
                      alert("Error Occurred while adding Image to inventory");
