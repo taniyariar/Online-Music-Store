@@ -11,6 +11,6 @@ $(document).ready(function(){
   });
   window.editSong = function(id){
     window.location= "php/admin_editperitem.php?songId="+id;
-    window.close();
+    //window.close();
   }
 });

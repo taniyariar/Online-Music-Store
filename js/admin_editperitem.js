@@ -1,6 +1,5 @@
 function wrapupfunc(){
-  window.close();
-  window.open('../adminpage.php', '_blank');
+  window.location.href="http://localhost:81/WPL/adminpage.php";
 }
 function validationfunc(key,name){
   var id = key;
@@ -172,8 +171,8 @@ function validationfunc(key,name){
              }
            });
         }
+        //window.close('../admin_editperitem.php');
         wrapupfunc();
-        //window.close();
       },
       error:function(response){
           alert("Error Occurred while adding Item to inventory");
