@@ -57,11 +57,12 @@ if(sizeof($genreSearch) > 0 ){
 
      //$item = array("id" => $pid,"title" => $pname,"price" => round($price,2), "image" => $imagename, "info" => $info, "genre" => $genre, "artist" => $album_artists,"year" => $year,"dur" => $duration);
      //array_push($items,$item);
-     $string = "img/".$imagename;
+     //$string = "img/".$imagename;
+     $string = 'data:image/jpeg;base64,'.base64_encode( $image );
      $tileinfo = '<li>'.$pname.'</li><li>'.$album_artists.'</li><li>$'.round($price,2).'</li>';
      $info = '<button id="info-btn" style="margin-left:70px;" class = "btn btn-info" onclick="detailsShow(\''.$genre.'\',\''.$info.'\','.$year.','.$duration.')">Description</button>';
      $details = '<ul id="details" style="list-style-type:none;padding:10px;color:white;text-align:center;">'.$tileinfo.'<li style="list-style-type:none;float:left;"><button class = "btn btn-info" onclick="addToCart('.$pid.')">Add to Cart</button>'.$info.'</li></ul>';
-     $img = '<li style="list-style-type: none;float:left;padding:50px;"><img src='.$string.' style="width:300px;height:300px;border:3px solid grey;" >'.$details.'</li>';
+     $img = '<li style="list-style-type: none;float:left;padding:45px;margin-bottom:30px;"><img src='.$string.' style="width:300px;height:300px;border:3px solid grey;" >'.$details.'</li>';
      $items .= $img;
       }
     }

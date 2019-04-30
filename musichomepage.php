@@ -26,7 +26,6 @@
         color: white;
         float: left;
         padding: 8px 16px;
-        margin-bottom:10px;
         text-decoration: none;
       }
     .pagination {
@@ -36,7 +35,7 @@
         border: 2px solid white;
       }
       .pagination a:hover:not(.active) {background-color: #ddd;color:black;}
-      #album{
+      .center{
         text-align: center;
       }
       #info-box{
@@ -161,17 +160,14 @@
                 </li>
             </ul>
         </div>
-        <div id='album'>
-          <ul id="album-data">
-          </ul>
+        <div class="center">
           <div class="pagination">
           </div>
         </div>
-
-
-        <!-- <input type = "Button" id= "add" value = "Add to Cart" style = "width: 110px; height: 50px; color: black; border: 1px solid black; border-radius: 10px;" /> -->
-
-        <!-- Footer -->
+        <div id='album'>
+          <ul id="album-data">
+          </ul>
+        </div>
         <footer class = "footer">
             <div class = "footer-container">
                 <span class = "text-muted">Copyright &copy; 2019 - Fenny Mahajan, Noumika Balaji, Taniya Riar (CS6314.001 - Spring 2019)</span>

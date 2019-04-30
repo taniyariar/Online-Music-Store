@@ -1,9 +1,10 @@
 $(document).ready(function(){
   var errormsg = "";
-  /*$("#phone").keyup(function() {
-    $(this).val($(this).val().replace(/^(\d{3})(\d{3})(\d)+$/, "($1)$2-$3"));
-  });*/
-  $("form").submit(function(e){
+  $(".btn-done").click(function(e){
+    e.preventDefault();
+    window.location.href='http://localhost:81/WPL/signin.html';
+  });
+  $(".btn-signup").click(function(e){
     e.preventDefault();
     var email = $.trim($("#email").val());
     var fname = $.trim($("#fname").val());

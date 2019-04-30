@@ -57,18 +57,17 @@ body {
     height: auto;
 }
 .footer-container {
-    position: fixed;
     bottom:0;
-    margin-bottom: 0;
     width: 100%;
-    height: 60px;
-    line-height: 60px;
+    height: 2em;
     background: #333333;
     color: white;
+    font-size: small;
+    position:relative;
     text-align: center;
 }
 .footer{
-  padding-top:50px;
+  margin-top:50px;
 }
 .fa-facebook-square {
     font-size: 25px;

@@ -22,6 +22,24 @@
 
         <script type = "text/javascript" src = "js/homepage.js"></script>
     </head>
+    <style media="screen">
+    #shop-btn {
+        height: 120px;
+        width: 380px;
+        border: solid white 1px;
+        border-radius: 10px;
+        color: white;
+        background: linear-gradient(to left, white 50%, black 50%);
+        background-size: 200% 100%;
+        background-position: left bottom;
+        transition: all .75s ease;
+        margin-bottom: 20px;
+        font-size: 60px;
+    }
+    #shop-btn:hover {
+        background-position: right bottom;
+    }
+    </style>
     <body>
         <!-- Navigation Bar -->
         <nav class = "navbar navbar-expand-lg navbar-dark bg-transparent" id = "myNavbar">
@@ -126,7 +144,7 @@
             </div>
             <br/>
             <div id = "shop-button">
-                <button class = "btn btn-primary" onclick="window.location='musichomepage.php'">
+                <button id= "shop-btn" onclick="window.location='musichomepage.php'">
                     <div class = "shop-text">SHOP</div>
                 </button>
             </div>

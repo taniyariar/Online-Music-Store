@@ -1,7 +1,12 @@
 <?php
 	session_start();
-	if(!isset($_SESSION['user']) && $_SESSION['level'] != "a"){
+	if(!isset($_SESSION["user"])){
 		header("Location:signin.html");
+	}
+	else{
+		if($_SESSION["level"]!="a"){
+			header("Location:signin.html");
+		}
 	}
  ?>
 <html lang = "en" dir = "ltr">

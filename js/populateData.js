@@ -11,10 +11,10 @@ $(document).ready(function(){
         //console.log(json.data);
         //console.log(json.total_pages);
         $("#album-data").html(json.data);
-        //$(".pagination").html('<a class="pagination_link" href="javascript:void(0)" id="arrows">&laquo;</a>');
-        $(".pagination").html(json.total_pages);
-        var pagination_end = "<a href='#'>&raquo;</a>";
-        //$(".pagination").append(pagination_end);
+        $(".pagination").html('<a class="pagination_link" href="javascript:void(0)" id="arrows">&laquo;</a>');
+        $(".pagination").append(json.total_pages);
+        var pagination_end = "<a class='pagination_link' href='#'>&raquo;</a>";
+        $(".pagination").append(pagination_end);
       },
       error:function(response){
         alert("Unable to retrieve data");
