@@ -143,13 +143,20 @@
                 <h1 style = "text-align: center; color: white; font-family: Georgia, 'Times New Roman', Times, serif;">In one place.</h1>
             </div>
             <br/>
-            <div id = "shop-button">
+            <div id = "shop-button" style="padding:20px;">
                 <button id= "shop-btn" onclick="window.location='musichomepage.php'">
                     <div class = "shop-text">SHOP</div>
                 </button>
             </div>
         </div>
-        <footer class = "footer">
+        <footer class = "footer" style = "bottom:0;
+        width: 100%;
+        height: 2em;
+        background: #333333;
+        color: white;
+        font-size: small;
+        position:fixed;
+        text-align: center;>
             <div class = "footer-container">
                 <span class = "text-muted">Copyright &copy; 2019 - Fenny Mahajan, Noumika Balaji, Taniya Riar (CS6314.001 - Spring 2019)</span>
             </div>
