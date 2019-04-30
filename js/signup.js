@@ -2,7 +2,7 @@ $(document).ready(function(){
   var errormsg = "";
   $(".btn-done").click(function(e){
     e.preventDefault();
-    window.location.href='http://localhost:81/WPL/signin.html';
+    window.location.href='signin.html';
   });
   $(".btn-signup").click(function(e){
     e.preventDefault();
