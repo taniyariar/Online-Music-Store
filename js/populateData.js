@@ -1,4 +1,30 @@
 $(document).ready(function(){
+  loadData();
+  function loadData(page){
+    //var page = 1;
+    $.ajax({
+      url:"php/populateData.php",
+      type:"GET",
+      data:{page:page},
+      success:function(response){
+        var json = $.parseJSON(response);
+        //console.log(json.data);
+        //console.log(json.total_pages);
+        $("#album-data").html(json.data);
+        //$(".pagination").html('<a class="pagination_link" href="javascript:void(0)" id="arrows">&laquo;</a>');
+        $(".pagination").html(json.total_pages);
+        var pagination_end = "<a href='#'>&raquo;</a>";
+        //$(".pagination").append(pagination_end);
+      },
+      error:function(response){
+        alert("Unable to retrieve data");
+    }
+    });
+  }
+  $(document).on('click',".pagination_link",function(){
+    var page= $(this).attr("id");
+    loadData(page);
+  });
   $.ajax({
     url:"php/cartCounter.php",
     type:"POST",
@@ -31,6 +57,7 @@ $(document).ready(function(){
           var img = '<li style="list-style-type: none;float:left;padding:50px;"><img src='+string+' style="width:300px;height:300px;border:3px solid grey;" >'+details+'</li>';
           $("#album-data").append(img);
         }
+      $(".pagination").empty();
       },
       error:function(response){
         alert("Unable to retrieve data");
@@ -45,52 +72,34 @@ $(document).ready(function(){
         favorite.push($(item).val());
       }
     });
-    $.ajax({
-      url:"php/filteredPopulateData.php",
-      type:"POST",
-      data:{info:favorite},
-      success:function(response){
-        $("#album-data").empty();
-        var json = $.parseJSON(response);
-        //console.log($.type(response));
-        for (var i = 0, len = json.length; i < len; i++) {
-          var string = "img/"+json[i].image;
-          var tileinfo = '<li>'+json[i].title+'</li><li>'+json[i].artist+'</li><li>$'+json[i].price+'</li>';
-          var info = '<button id="info-btn" style="margin-left:70px;" class = "btn btn-info" onclick="detailsShow(\''+json[i].genre+'\',\''+json[i].info+'\','+json[i].year+','+json[i].dur+')">Description</button>'
-          var details = '<ul id="details" style="list-style-type:none;padding:10px;color:white;text-align:center;">'+tileinfo+'<li style="list-style-type:none;float:left;"><button class = "btn btn-info" onclick="addToCart('+json[i].id+')">Add to Cart</button>'+info+'</li></ul>'
-          var img = '<li style="list-style-type: none;float:left;padding:50px;"><img src='+string+' style="width:300px;height:300px;border:3px solid grey;" >'+details+'</li>';
-          $("#album-data").append(img);
-        }
-      },
-      error:function(response){
-        alert("Unable to retrieve data");
+    if(favorite.length == 0){
+      loadData();
     }
-    });
-  });
-
-
-  $.ajax({
-    url:"php/populateData.php",
-    type:"GET",
-    success:function(response){
-      var json = $.parseJSON(response);
-      //console.log($.type(json));
-      for (var i = 0, len = json.length; i < len; i++) {
-        //var j = $.parseJSON(json[i]);
-        //console.log(json[i]);
-        var string = "img/"+json[i].image;
-        var tileinfo = '<li>'+json[i].title+'</li><li>'+json[i].artist+'</li><li>$'+json[i].price+'</li>';
-        var info = '<button id="info-btn" style="margin-left:70px;" class = "btn btn-info" onclick="detailsShow(\''+json[i].genre+'\',\''+json[i].info+'\','+json[i].year+','+json[i].dur+')">Description</button>'
-        var details = '<ul id="details" style="list-style-type:none;padding:10px;color:white;text-align:center;">'+tileinfo+'<li style="list-style-type:none;float:left;"><button class = "btn btn-info" onclick="addToCart('+json[i].id+')">Add to Cart</button>'+info+'</li></ul>'
-        var img = '<li style="list-style-type: none;float:left;padding:50px;"><img src='+string+' style="width:300px;height:300px;border:3px solid grey;" >'+details+'</li>';
-        $("#album-data").append(img);
+    else{
+      $.ajax({
+        url:"php/filteredPopulateData.php",
+        type:"POST",
+        data:{info:favorite},
+        success:function(response){
+          $("#album-data").empty();
+          var json = $.parseJSON(response);
+          for (var i = 0, len = json.length; i < len; i++) {
+            var string = "img/"+json[i].image;
+            var tileinfo = '<li>'+json[i].title+'</li><li>'+json[i].artist+'</li><li>$'+json[i].price+'</li>';
+            var info = '<button id="info-btn" style="margin-left:70px;" class = "btn btn-info" onclick="detailsShow(\''+json[i].genre+'\',\''+json[i].info+'\','+json[i].year+','+json[i].dur+')">Description</button>'
+            var details = '<ul id="details" style="list-style-type:none;padding:10px;color:white;text-align:center;">'+tileinfo+'<li style="list-style-type:none;float:left;"><button class = "btn btn-info" onclick="addToCart('+json[i].id+')">Add to Cart</button>'+info+'</li></ul>'
+            var img = '<li class="list-group" style="list-style-type: none;float:left;padding:50px;"><img src='+string+' style="width:300px;height:300px;border:3px solid grey;" >'+details+'</li>';
+            $("#album-data").append(img);
+          }
+          $(".pagination").empty();
+        },
+        error:function(response){
+          alert("Unable to retrieve data");
       }
-      //$("#album-data").append(json.image);
-    },
-    error:function(response){
-      alert("Unable to retrieve data");
-  }
+      });
+    }
   });
+
   window.detailsShow = function(g,i,y,d){
     var l = event.pageX+5;
     var r = event.pageY+5;

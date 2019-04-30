@@ -22,6 +22,23 @@
         <script type = "text/javascript" src = "js/populateData.js"></script>
     </head>
     <style media="screen">
+    .pagination a {
+        color: white;
+        float: left;
+        padding: 8px 16px;
+        margin-bottom:10px;
+        text-decoration: none;
+      }
+    .pagination {
+        display: inline-block;
+      }
+      .pagination_link{
+        border: 2px solid white;
+      }
+      .pagination a:hover:not(.active) {background-color: #ddd;color:black;}
+      #album{
+        text-align: center;
+      }
       #info-box{
           background-color:grey;
           position:absolute;
@@ -147,7 +164,11 @@
         <div id='album'>
           <ul id="album-data">
           </ul>
+          <div class="pagination">
+          </div>
         </div>
+
+
         <!-- <input type = "Button" id= "add" value = "Add to Cart" style = "width: 110px; height: 50px; color: black; border: 1px solid black; border-radius: 10px;" /> -->
 
         <!-- Footer -->
